@@ -1,0 +1,23 @@
+﻿<Properties StartupConfiguration="{674F6B8F-D9F9-4AB4-B4ED-4C640F77ED92}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DataTemplates/ViewModels/TimeSlotViewModel.cs">
+    <Files>
+      <File FileName="DataTemplates/Views/TimeSlotsWrapLayout.cs" Line="47" Column="1" />
+      <File FileName="../../../../../xamarin.forms/Xamarin.Forms/Xamarin.Forms.Platform.iOS/RendererPool.cs" Line="156" Column="15" />
+      <File FileName="DataTemplates/ViewModels/RoomsViewModel.cs" Line="33" Column="9" />
+      <File FileName="DataTemplates/Pages/FramesPageCS.cs" Line="77" Column="37" />
+      <File FileName="../../../../../xamarin.forms/Xamarin.Forms/Xamarin.Forms.Platform.iOS/Renderers/ListViewRenderer.cs" Line="860" Column="51" />
+      <File FileName="iOS/Main.cs" Line="17" Column="1" />
+      <File FileName="DataTemplates/ViewModels/TimeSlotViewModel.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.DataTemplates.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.cdbb956e19f00d310b0dc09db99f27c0a181cafa" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.ItemProperties.DataTemplates.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint enabled="false" file="/Users/gregmercer/Desktop/xamarin.forms/Xamarin.Forms/Xamarin.Forms.Platform.iOS/RendererPool.cs" line="50" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
