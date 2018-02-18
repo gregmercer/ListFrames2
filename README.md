@@ -32,7 +32,7 @@ https://github.com/gregmercer/ListFrames2
 na
 
 **Steps to Reproduce**
-- When App opens the FramesPage gets OnAppearing. Shows page from heirarchy show above.
+- When App opens the FramesPage gets OnAppearing. Shows page with UI structure heirarchy shown above.
 - Tab to second page - OtherPage.
 - Tab back to Frames page.
 
