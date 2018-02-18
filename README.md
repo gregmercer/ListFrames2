@@ -2,6 +2,10 @@
 
 **Description**
 
+On iOS the Slots are not rendered (or invisible?). Displays a blank open space where the Slots should have been rendered.
+
+**UI Structure**
+
 ```
 Xamarin Forms 
   Content Page
@@ -17,8 +21,6 @@ Xamarin Forms
                   Frame (Random number of Frames - Slots)
                     Label 
 ```                  
-
-On iOS the Slots are not rendered (or invisible?). Displays a blank open space where the Slots should have been rendered.
 
 Not using groups 
 
@@ -85,19 +87,19 @@ public void UpdateNewElement(VisualElement newElement)
 
 **Basic Information**
 
-Version with issue: - Include="Xamarin.Forms" Version="2.5.0" a356efc
+> Version with issue: - Include="Xamarin.Forms" Version="2.5.0" a356efc
 Last known good version: - New issue
 
-IDE: - Visual Studio
+> IDE: - Visual Studio
 
-Platform Target Frameworks:
-iOS: 
+> Platform Target Frameworks:
+iOS: Renders incorectly, or invisible.
 Android: Works fine
 
-Nuget Packages:
+**Nuget Packages:**
 Xamarin Forms
 
-Affected Devices:
+**Affected Devices:**
 IOS emulator and iPhone 6 (real device)
 
 Screenshots
