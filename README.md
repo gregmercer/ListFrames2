@@ -46,7 +46,7 @@ na
 
 > Running with local build of Xamarin Forms I've found that if I changed the 
 
-> RendererPool.cs UpdateNewElement method to have the following new code it 
+> RendererPool.cs UpdateNewElement method to have the following new testing code it 
 
 > seemed to cause the Slots to render correctly:
 
@@ -69,7 +69,7 @@ public void UpdateNewElement(VisualElement newElement)
       else
         sameChildrenTypes = false;
 
-<testing code change>
+<testing code added>
 
       if (sameChildrenTypes) 
       {
@@ -82,7 +82,7 @@ public void UpdateNewElement(VisualElement newElement)
           }
       }
 
-</testing code change>
+</testing code added>
 ```
 
 **Basic Information**
