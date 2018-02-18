@@ -30,15 +30,15 @@ https://github.com/gregmercer/ListFrames2
 na
 
 **Steps to Reproduce**
-When App opens the FramesPage gets OnAppearing. Shows page from heirarchy show above.
-Tab to second page - OtherPage.
-Tab back to Frames page.
+- When App opens the FramesPage gets OnAppearing. Shows page from heirarchy show above.
+- Tab to second page - OtherPage.
+- Tab back to Frames page.
 
 **Actual Behavior**
-Scroll. Notice Slots are not being rendered (or invisible?).
+- Scroll. Notice Slots are not being rendered (or invisible?).
 
 **Expected Behavior**
-The Slots should be displaying correctly for each ListView row.
+- The Slots should be displaying correctly for each ListView row.
 
 **Some findings:**
 
