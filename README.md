@@ -64,7 +64,7 @@ public void UpdateNewElement(VisualElement newElement)
       else
         sameChildrenTypes = false;
 
-<tested code change>
+<testing code change>
 
       if (sameChildrenTypes) 
       {
@@ -77,7 +77,7 @@ public void UpdateNewElement(VisualElement newElement)
           }
       }
 
-</tested code change>
+</testing code change>
 ```
 
 **Basic Information**
