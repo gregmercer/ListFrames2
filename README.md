@@ -42,8 +42,9 @@ na
 
 **Some findings:**
 
-Running with local build of Xamarin Forms found that if I changed the RendererPool.cs UpdateNewElement method to have the 
-the following new code it seemed to cause the Slots to render correctly:
+...Running with local build of Xamarin Forms I've found that if I changed the 
+...RendererPool.cs UpdateNewElement method to have the following new code it 
+...seemed to cause the Slots to render correctly:
 
 ```
 public void UpdateNewElement(VisualElement newElement)
