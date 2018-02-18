@@ -1,7 +1,8 @@
 # ListFrames2
 
-Description
+**Description**
 
+```
 Xamarin Forms 
   Content Page
     StackLayout
@@ -15,32 +16,36 @@ Xamarin Forms
                 BindingProperty (TimeSlotsSourceProperty TimeSlots)
                   Frame (Random number of Frames - Slots)
                     Label 
+```                  
 
 On iOS the Slots are not rendered (or invisible?). Displays a blank open space where the Slots should have been rendered.
 
 Not using groups 
 
-Code @
+**Code @**
 https://github.com/gregmercer/ListFrames2
 
-Stack Trace
+**Stack Trace**
 
 na
 
-Steps to Reproduce
+**Steps to Reproduce**
 When App opens the FramesPage gets OnAppearing. Shows page from heirarchy show above.
 Tab to second page - OtherPage.
 Tab back to Frames page.
+
+**Actual Behavior**
 Scroll. Notice Slots are not being rendered (or invisible?).
 
-Actual Behavior
+**Expected Behavior**
 The Slots should be displaying correctly for each ListView row.
 
-Some findings:
+**Some findings:**
 
 Running with local build of Xamarin Forms found that if I changed the RendererPool.cs UpdateNewElement method to have the 
 the following new code it seemed to cause the Slots to render correctly:
 
+```
 public void UpdateNewElement(VisualElement newElement)
 
     ...
@@ -73,8 +78,9 @@ public void UpdateNewElement(VisualElement newElement)
       }
 
 </tested code change>
+```
 
-Basic Information
+**Basic Information**
 
 Version with issue: - Include="Xamarin.Forms" Version="2.5.0" a356efc
 Last known good version: - New issue
