@@ -58,8 +58,6 @@ namespace DataTemplates.Views
                 // Frame Approach - Begin
                 //
 
-                timeSlotViewModel.SlotsWrapLayout = slotsWrapLayout;
-
                 var timeSlotLabel = new Label
                 {
                     Text = timeSlotViewModel.StartTime,
@@ -72,7 +70,6 @@ namespace DataTemplates.Views
                     VerticalTextAlignment = TextAlignment.Center,
                     HorizontalTextAlignment = TextAlignment.Center,
                 };
-                timeSlotViewModel.TimeSlotLabel = timeSlotLabel;
 
                 Frame timeSlotFrame = new Frame
                 {
@@ -88,13 +85,10 @@ namespace DataTemplates.Views
                     Padding = new Thickness(10, 10, 10, 10),
                     Margin = new Thickness(0, 3, 0, 0),
                 };
-                timeSlotViewModel.TimeSlotFrame = timeSlotFrame;
 
                 timeSlotFrame.BackgroundColor = Color.White;
                 timeSlotLabel.TextColor = Color.Green;
                 timeSlotFrame.OutlineColor = Color.Green;
-
-                timeSlotFrame.IsVisible = timeSlotViewModel.IsVisible;
 
                 slotsWrapLayout.Children.Add(timeSlotFrame);
 
@@ -211,5 +205,7 @@ namespace DataTemplates.Views
         {
             base.OnChildMeasureInvalidated();
         }
+
+
     }
 }

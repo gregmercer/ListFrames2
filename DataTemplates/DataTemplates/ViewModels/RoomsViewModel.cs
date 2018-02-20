@@ -9,15 +9,10 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using DataTemplates.Views;
 
 namespace DataTemplates.ViewModels
 {
-    public enum BookRoomResults
-    {
-        Failed,
-        Success,
-    }
-
     public class RoomsViewModel : SimpleViewModel
     {
         public ICommand GetRoomsCommand { get; private set; }
@@ -26,126 +21,82 @@ namespace DataTemplates.ViewModels
         public RoomsViewModel()
         {
             GetRoomsCommand = new Command(async () => await GetRooms());
-            ClearChildrenCommand = new Command(async () => await ClearChildren());
         }
 
         // Commands
 
-        protected async Task ClearChildren()
-        {
-            if (Rooms == null)
-            {
-                return;
-            }
-
-            foreach(RoomViewModel rvm in Rooms)
-            {
-                foreach(TimeSlotViewModel tvm in rvm.TimeSlots)
-                {
-                    if (tvm.TimeSlotFrame != null)
-                    {
-                        tvm.SlotsWrapLayout.Children.Remove(tvm.TimeSlotFrame);
-                        tvm.TimeSlotFrame.GestureRecognizers.Remove(tvm.FrameTap);
-                        tvm.TimeSlotFrame = null;
-                        Debug.WriteLine(@"Removing {0} for Room: {1}", tvm.TimeSlotLabel.Text, tvm.RoomViewModel.Name);
-                    }
-                }
-                rvm.TimeSlots.Clear();
-            }
-
-            Rooms.Clear();
-        }
-
         protected async Task GetRooms()
         {
-            ObservableCollection<RoomViewModel> roomsList = new ObservableCollection<RoomViewModel>{};
-
-            //if (Rooms != null)
-            //{
-                //Rooms.Clear();
-            //}
-            await ClearChildren();
-
-            int numSlots = GetRandomNumber(20, 40);
-
-            List<String> slotTextList = RandomWordSet(numSlots);
-
-            Debug.WriteLine("numSlots = " + numSlots);
-
-            for (int index = 0; index < 10; index++)
+            Rooms = new ObservableCollection<RoomViewModel>() 
             {
-                List<TimeSlotViewModel> tsvmList = new List<TimeSlotViewModel>();
+                new RoomViewModel() { Index = 1, Name = "Room 1", TimeSlots = new ObservableCollection<TimeSlotViewModel>()
+                    {   new TimeSlotViewModel() { StartTime = "1:01a aa" },
+                        new TimeSlotViewModel() { StartTime = "2:01a bb" },
+                        new TimeSlotViewModel() { StartTime = "3:01a cc" },
+                        new TimeSlotViewModel() { StartTime = "4:01a dd" },
+                        new TimeSlotViewModel() { StartTime = "5:01a ee" },
+                        new TimeSlotViewModel() { StartTime = "6:01a ff" },
+                        new TimeSlotViewModel() { StartTime = "7:01a gg" },
+                    } },
 
-                RoomViewModel rvm = new RoomViewModel() { Index = index, Name = "Room " + index, TimeSlots = tsvmList };
-
-                Debug.WriteLine("Room = " + rvm.Name + " numSlots = " + numSlots + " words = " + slotTextList.ToString());
-
-                List<Boolean> bitList = RandomBitSet(numSlots);
-
-                var timeSlots = new List<string>();
-                for (var slotIndex = 0; slotIndex < numSlots; slotIndex++)
-                {
-                    var slotText = slotTextList.ElementAt(slotIndex);
-                    var slotIsVisible = bitList.ElementAt(slotIndex);
-
-                    TimeSlotViewModel tsm = new TimeSlotViewModel() { StartTime = slotText, RoomViewModel = rvm, IsVisible = slotIsVisible };
-                    tsvmList.Add(tsm);
-                }
-
-                roomsList.Add(rvm);
-            }
-
-            Rooms = roomsList;
-        }
-
-        private static List<Boolean> RandomBitSet(int setSize)
-        {
-            List<Boolean> bitList = new List<Boolean>();
-            for (var index = 0; index < setSize; index++)
-            {
-                Boolean bit = true;
-                var ranNumber = GetRandomNumber(0, 2);
-                //Debug.WriteLine("in RandomBitSet ranNumber = " + ranNumber);
-                if (ranNumber == 0)
-                {
-                    bit = false;
-                }
-                //Debug.WriteLine("in RandomBitSet bit = " + bit);
-                bitList.Add(bit);
-            }
-            return bitList;
-        }
-
-        private static List<String> RandomWordSet(int setSize)
-        {
-            List<String> wordList = new List<String>();
-            for (var index = 0; index < setSize; index++)
-            {
-                var slotText = RandomString(GetRandomNumber(5, 15));
-                wordList.Add(slotText);
-            }
-
-            return wordList;
-        }
-
-        private static readonly Random getrandom = new Random();
-        private static readonly object syncLock = new object();
-
-        //Function to get random number
-        public static int GetRandomNumber(int min, int max)
-        {
-            lock(syncLock)  // synchronize
-            {
-                return getrandom .Next(min, max);
-            }
-        }
-
-        private static Random random = new Random();
-        public static string RandomString(int length)
-        {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            return new string(Enumerable.Repeat(chars, length)
-                                      .Select(s => s[random.Next(s.Length)]).ToArray());
+                new RoomViewModel() { Index = 2, Name = "Room 2", TimeSlots = new ObservableCollection<TimeSlotViewModel>()
+                    {   new TimeSlotViewModel() { StartTime = "1:02a aa" },
+                        new TimeSlotViewModel() { StartTime = "2:02a bb" },
+                        new TimeSlotViewModel() { StartTime = "3:02a cc" },
+                        new TimeSlotViewModel() { StartTime = "4:02a dd" },
+                        new TimeSlotViewModel() { StartTime = "5:02a ee" },
+                        new TimeSlotViewModel() { StartTime = "6:02a ff" },
+                        new TimeSlotViewModel() { StartTime = "7:02a gg" },
+                    } },
+                
+                new RoomViewModel() { Index = 3, Name = "Room 3", TimeSlots = new ObservableCollection<TimeSlotViewModel>()
+                    {   new TimeSlotViewModel() { StartTime = "1:03a aa" },
+                        new TimeSlotViewModel() { StartTime = "2:03a bb" },
+                        new TimeSlotViewModel() { StartTime = "3:03a cc" },
+                        new TimeSlotViewModel() { StartTime = "4:03a dd" },
+                        new TimeSlotViewModel() { StartTime = "5:03a ee" },
+                        new TimeSlotViewModel() { StartTime = "6:03a ff" },
+                        new TimeSlotViewModel() { StartTime = "7:03a gg" },
+                        new TimeSlotViewModel() { StartTime = "8:03a hh" },
+                    } },
+                
+                new RoomViewModel() { Index = 4, Name = "Room 4", TimeSlots = new ObservableCollection<TimeSlotViewModel>()
+                    {   new TimeSlotViewModel() { StartTime = "1:04a aa" },
+                        new TimeSlotViewModel() { StartTime = "2:04a bb" },
+                        new TimeSlotViewModel() { StartTime = "3:04a cc" },
+                        new TimeSlotViewModel() { StartTime = "4:04a dd" },
+                        new TimeSlotViewModel() { StartTime = "5:04a ee" },
+                        new TimeSlotViewModel() { StartTime = "6:04a ff" },
+                        new TimeSlotViewModel() { StartTime = "7:04a gg" },
+                        new TimeSlotViewModel() { StartTime = "8:04a hh" },
+                    } },
+                
+                new RoomViewModel() { Index = 5, Name = "Room 5", TimeSlots = new ObservableCollection<TimeSlotViewModel>()
+                    {   new TimeSlotViewModel() { StartTime = "1:05a aa" },
+                        new TimeSlotViewModel() { StartTime = "2:05a bb" },
+                        new TimeSlotViewModel() { StartTime = "3:05a cc" },
+                        new TimeSlotViewModel() { StartTime = "4:05a dd" },
+                        new TimeSlotViewModel() { StartTime = "5:05a ee" },
+                        new TimeSlotViewModel() { StartTime = "6:05a ff" },
+                        new TimeSlotViewModel() { StartTime = "7:05a gg" },
+                        new TimeSlotViewModel() { StartTime = "8:05a hh" },
+                        new TimeSlotViewModel() { StartTime = "9:05a ii" },
+                        new TimeSlotViewModel() { StartTime = "10:05a jj" },
+                    } },
+                
+                new RoomViewModel() { Index = 6, Name = "Room 6", TimeSlots = new ObservableCollection<TimeSlotViewModel>()
+                    {   new TimeSlotViewModel() { StartTime = "1:06a aa" },
+                        new TimeSlotViewModel() { StartTime = "2:06a bb" },
+                        new TimeSlotViewModel() { StartTime = "3:06a cc" },
+                        new TimeSlotViewModel() { StartTime = "4:06a dd" },
+                        new TimeSlotViewModel() { StartTime = "5:06a ee" },
+                        new TimeSlotViewModel() { StartTime = "6:06a ff" },
+                        new TimeSlotViewModel() { StartTime = "7:06a gg" },
+                        new TimeSlotViewModel() { StartTime = "8:06a hh" },
+                        new TimeSlotViewModel() { StartTime = "9:06a ii" },
+                        new TimeSlotViewModel() { StartTime = "10:06a jj" },
+                    } },
+            };
         }
 
         // Properties

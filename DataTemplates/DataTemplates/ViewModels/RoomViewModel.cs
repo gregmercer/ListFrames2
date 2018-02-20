@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -36,7 +37,7 @@ namespace DataTemplates.ViewModels
             }
         }
 
-        public IList<TimeSlotViewModel> TimeSlots { get; set; }
+        public ObservableCollection<TimeSlotViewModel> TimeSlots { get; set; }
 
     }
 }

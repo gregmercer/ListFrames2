@@ -14,7 +14,6 @@ namespace DataTemplates
 		public App ()
 		{
             RoomsViewModel = new RoomsViewModel();
-            RoomsViewModel.NumberSlots = 5;
 
             MainPage = new NavigationPage(new HomePageCS());
 		}
